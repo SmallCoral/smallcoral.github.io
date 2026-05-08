@@ -47,5 +47,16 @@
       "game"
     ],
     "description": "查版本、机制和玩法细节时最常打开的资料站。"
+  },
+  {
+    "label": "Blog",
+    "name": "DaZiDian",
+    "url": "https://dz1d.vip/",
+    "avatar": "https://dz1d.vip/assets/jpg/LOGO-BWIDVxi8.jpg",
+    "tags": [
+      "personal"
+    ],
+    "description": "春風若有憐花意，可否許我再少年？",
+    "reciprocal": "https://dz1d.vip/friends"
   }
 ]
