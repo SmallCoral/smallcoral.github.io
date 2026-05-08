@@ -210,6 +210,7 @@ async function main() {
     url,
     avatar,
     tags: category.tags,
+    group: "friend",
     description,
   };
 

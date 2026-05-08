@@ -7,6 +7,7 @@
       "personal",
       "code"
     ],
+    "group": "resource",
     "description": "代码、硬件和杂项项目的主要归档地。"
   },
   {
@@ -17,6 +18,7 @@
       "hardware",
       "personal"
     ],
+    "group": "resource",
     "description": "电路与板子项目，会把硬件相关内容放在这里。"
   },
   {
@@ -27,6 +29,7 @@
       "personal",
       "video"
     ],
+    "group": "resource",
     "description": "视频账号入口，适合放过程记录和整活内容。"
   },
   {
@@ -36,6 +39,7 @@
     "tags": [
       "study"
     ],
+    "group": "resource",
     "description": "计算机自学路线与课程资料导航。"
   },
   {
@@ -46,6 +50,7 @@
       "study",
       "game"
     ],
+    "group": "resource",
     "description": "查版本、机制和玩法细节时最常打开的资料站。"
   },
   {
@@ -56,6 +61,7 @@
     "tags": [
       "personal"
     ],
+    "group": "friend",
     "description": "春風若有憐花意，可否許我再少年？",
     "reciprocal": "https://dz1d.vip/friends"
   }

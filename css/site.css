@@ -590,10 +590,40 @@ main {
   background: var(--ink);
 }
 
+.friend-board {
+  display: grid;
+  gap: 28px;
+}
+
+.friend-group-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.friend-group-heading span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.friend-group-heading h3 {
+  margin-top: 4px;
+  font-size: 28px;
+  line-height: 1.18;
+}
+
 .friend-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.friend-sites-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .friend-card {
@@ -603,25 +633,60 @@ main {
   transition: transform 180ms ease, border-color 180ms ease;
 }
 
+.friend-site-card {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: flex-start;
+  min-height: 142px;
+  gap: 16px;
+}
+
 .friend-card:hover {
   transform: translateY(-4px);
   border-color: var(--coral);
 }
 
-.friend-card span {
+.friend-card-body {
+  min-width: 0;
+}
+
+.friend-avatar {
+  position: relative;
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--amber);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.friend-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.friend-card-body > span {
   color: var(--cyan);
   font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
 }
 
-.friend-card strong {
+.friend-card-body > strong {
   display: block;
   margin-top: 10px;
   font-size: 24px;
 }
 
-.friend-card p {
+.friend-card-body > p {
   margin-top: 10px;
   color: var(--muted);
   line-height: 1.75;
@@ -632,7 +697,17 @@ main {
   background: var(--ink);
 }
 
-.invite-card p {
+.invite-card .friend-avatar {
+  color: var(--ink);
+  background: var(--coral);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.invite-card .friend-card-body > span {
+  color: var(--amber);
+}
+
+.invite-card .friend-card-body > p {
   color: rgba(255, 255, 255, 0.72);
 }
 
