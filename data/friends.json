@@ -1,0 +1,51 @@
+[
+  {
+    "label": "GitHub",
+    "name": "SmallCoral",
+    "url": "https://github.com/SmallCoral",
+    "tags": [
+      "personal",
+      "code"
+    ],
+    "description": "代码、硬件和杂项项目的主要归档地。"
+  },
+  {
+    "label": "Hardware",
+    "name": "OSHWHub",
+    "url": "https://oshwhub.com/smallcoral/",
+    "tags": [
+      "hardware",
+      "personal"
+    ],
+    "description": "电路与板子项目，会把硬件相关内容放在这里。"
+  },
+  {
+    "label": "Video",
+    "name": "Bilibili",
+    "url": "https://space.bilibili.com/517434964",
+    "tags": [
+      "personal",
+      "video"
+    ],
+    "description": "视频账号入口，适合放过程记录和整活内容。"
+  },
+  {
+    "label": "Study",
+    "name": "CS 自学指南",
+    "url": "https://csdiy.wiki/",
+    "tags": [
+      "study"
+    ],
+    "description": "计算机自学路线与课程资料导航。"
+  },
+  {
+    "label": "Minecraft",
+    "name": "Minecraft Wiki",
+    "url": "https://zh.minecraft.wiki/",
+    "tags": [
+      "study",
+      "game"
+    ],
+    "description": "查版本、机制和玩法细节时最常打开的资料站。"
+  }
+]

@@ -20,9 +20,125 @@ window.addEventListener("scroll", setActiveNav, { passive: true });
 setActiveNav();
 
 const searchInput = document.querySelector("#friendSearch");
+const friendGrid = document.querySelector("#friendGrid");
 const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
-const friendCards = Array.from(document.querySelectorAll(".friend-card"));
+const defaultFriends = [
+  {
+    label: "GitHub",
+    name: "SmallCoral",
+    url: "https://github.com/SmallCoral",
+    tags: ["personal", "code"],
+    description: "代码、硬件和杂项项目的主要归档地。",
+  },
+  {
+    label: "Hardware",
+    name: "OSHWHub",
+    url: "https://oshwhub.com/smallcoral/",
+    tags: ["hardware", "personal"],
+    description: "电路与板子项目，会把硬件相关内容放在这里。",
+  },
+  {
+    label: "Video",
+    name: "Bilibili",
+    url: "https://space.bilibili.com/517434964",
+    tags: ["personal", "video"],
+    description: "视频账号入口，适合放过程记录和整活内容。",
+  },
+  {
+    label: "Study",
+    name: "CS 自学指南",
+    url: "https://csdiy.wiki/",
+    tags: ["study"],
+    description: "计算机自学路线与课程资料导航。",
+  },
+  {
+    label: "Minecraft",
+    name: "Minecraft Wiki",
+    url: "https://zh.minecraft.wiki/",
+    tags: ["study", "game"],
+    description: "查版本、机制和玩法细节时最常打开的资料站。",
+  },
+];
+let friendCards = Array.from(document.querySelectorAll(".friend-card"));
 let activeFilter = "all";
+
+function normalizeTags(tags) {
+  if (Array.isArray(tags)) {
+    return tags.map((tag) => String(tag).trim()).filter(Boolean);
+  }
+
+  return String(tags || "")
+    .split(/\s+/)
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+}
+
+function createFriendCard(friend) {
+  const card = document.createElement("a");
+  card.className = "friend-card";
+  card.href = friend.url;
+  card.dataset.tags = normalizeTags(friend.tags).join(" ");
+  card.target = "_blank";
+  card.rel = "noopener";
+
+  const label = document.createElement("span");
+  label.textContent = friend.label || "Friend";
+
+  const name = document.createElement("strong");
+  name.textContent = friend.name;
+
+  const description = document.createElement("p");
+  description.textContent = friend.description;
+
+  card.append(label, name, description);
+  return card;
+}
+
+function createInviteCard() {
+  const card = createFriendCard({
+    label: "Exchange",
+    name: "申请友链",
+    url: "https://github.com/SmallCoral/smallcoral.github.io/issues/new?template=friend-link.yml",
+    tags: ["personal", "exchange"],
+    description: "通过 GitHub Issues 提交站名、链接、头像和简介。长期欢迎同好互相挂链。",
+  });
+  card.classList.add("invite-card");
+  return card;
+}
+
+function renderFriends(friends) {
+  if (!friendGrid) {
+    return;
+  }
+
+  const cards = friends.map(createFriendCard);
+  cards.push(createInviteCard());
+  friendGrid.replaceChildren(...cards);
+  friendCards = Array.from(friendGrid.querySelectorAll(".friend-card"));
+  filterFriends();
+}
+
+async function loadFriends() {
+  if (!friendGrid) {
+    return;
+  }
+
+  renderFriends(defaultFriends);
+
+  try {
+    const response = await fetch(friendGrid.dataset.source || "data/friends.json", { cache: "no-cache" });
+    if (!response.ok) {
+      throw new Error(`Friend data request failed: ${response.status}`);
+    }
+
+    const friends = await response.json();
+    if (Array.isArray(friends)) {
+      renderFriends(friends);
+    }
+  } catch (error) {
+    console.warn("Using embedded friend list fallback.", error);
+  }
+}
 
 function filterFriends() {
   const keyword = (searchInput?.value || "").trim().toLowerCase();
@@ -45,6 +161,7 @@ filterButtons.forEach((button) => {
 });
 
 searchInput?.addEventListener("input", filterFriends);
+loadFriends();
 
 const copyButton = document.querySelector("#copyFriendInfo");
 copyButton?.addEventListener("click", async () => {

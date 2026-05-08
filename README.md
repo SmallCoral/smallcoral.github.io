@@ -14,7 +14,13 @@ SmallCoral 的个人博客重写版。
 - 全新首页视觉
 - BH6TAW 业余无线电台呼号展示
 - 博客文章卡片与独立文章页
-- 友链展示、筛选、搜索和友链信息复制
+- 友链展示、筛选、搜索、信息复制和 GitHub Issues 审核后自动添加
 - 无 Bootstrap、无旧模板脚本、无外部构建流程
 
 直接打开 `index.html` 即可浏览。
+
+友链自动化：
+
+- 申请入口使用 GitHub Issue Form：`.github/ISSUE_TEMPLATE/friend-link.yml`
+- 审核通过时给申请 Issue 添加 `friend-approved` 标签
+- GitHub Actions 会把申请信息追加到 `data/friends.json`，提交到默认分支，并关闭 Issue

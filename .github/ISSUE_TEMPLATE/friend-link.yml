@@ -48,6 +48,20 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: category
+    attributes:
+      label: 展示分类
+      description: 审核通过后会用于友链卡片的小标签和筛选标签。
+      options:
+        - 个人博客
+        - 技术/学习
+        - 硬件/电子
+        - 游戏/兴趣
+        - 其他
+    validations:
+      required: true
+
   - type: input
     id: reciprocal-link
     attributes:

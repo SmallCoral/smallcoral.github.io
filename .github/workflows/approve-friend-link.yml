@@ -1,0 +1,32 @@
+name: Approve friend link
+
+on:
+  issues:
+    types:
+      - labeled
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: friend-link-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  approve:
+    if: github.event.label.name == 'friend-approved' && github.event.issue.pull_request == null
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Add friend link
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          APPROVAL_LABEL: friend-approved
+          TARGET_BRANCH: ${{ github.event.repository.default_branch }}
+        run: node .github/scripts/approve-friend-link.mjs
