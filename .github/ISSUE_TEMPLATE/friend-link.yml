@@ -1,0 +1,66 @@
+name: 友链申请
+description: 提交站点信息，申请添加到 SmallCoral 的水族馆友链
+title: "[友链申请] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢愿意交换友链。请确认你的网站可以正常访问，并尽量先在你的网站中添加本站信息：
+
+        - 站名：SmallCoral 的水族馆
+        - 链接：https://smallcoral.github.io/
+        - 头像：https://smallcoral.github.io/images/favicon.png
+        - 简介：电子、代码、Minecraft、业余无线电与折腾记录。呼号 BH6TAW。
+
+  - type: input
+    id: site-name
+    attributes:
+      label: 站点名称
+      description: 希望展示在友链卡片上的名称。
+      placeholder: 例如：SmallCoral 的水族馆
+    validations:
+      required: true
+
+  - type: input
+    id: site-url
+    attributes:
+      label: 站点链接
+      description: 请填写完整 URL。
+      placeholder: https://example.com/
+    validations:
+      required: true
+
+  - type: input
+    id: avatar-url
+    attributes:
+      label: 头像或图标链接
+      description: 推荐使用 HTTPS 图片链接。
+      placeholder: https://example.com/avatar.png
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 站点简介
+      description: 一两句话介绍你的站点内容。
+      placeholder: 例如：记录代码、硬件、无线电和日常折腾。
+    validations:
+      required: true
+
+  - type: input
+    id: reciprocal-link
+    attributes:
+      label: 已添加本站的位置
+      description: 如果已经添加本站友链，请填写对应页面链接。
+      placeholder: https://example.com/friends/
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 其他说明
+      description: 有其他想补充的信息可以写在这里。
+    validations:
+      required: false
