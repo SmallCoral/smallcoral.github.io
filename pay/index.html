@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmallCoral 付款码</title>
+  <meta name="description" content="SmallCoral 的支付宝与微信双平台付款码。">
+  <link rel="shortcut icon" href="../images/favicon.png" type="image/png">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: #111827;
+      background: #111827;
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px;
+      overflow: hidden;
+    }
+
+    .background {
+      position: absolute;
+      inset: 0;
+      background: url("public/background.jpg") center / cover no-repeat;
+      filter: brightness(0.76);
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      width: min(320px, 100%);
+      flex-direction: column;
+      align-items: center;
+      margin: 48px 40px;
+      padding: 48px 20px 20px;
+      border-radius: 1.2rem;
+      background: rgba(255, 255, 255, 0.85);
+      word-break: break-all;
+    }
+
+    .avatar {
+      width: 128px;
+      height: 128px;
+      border: 1px solid #d1d5db;
+      border-radius: 999px;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 16px 0 0;
+      color: #000000;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .desc {
+      margin: 4px 0 0;
+      color: #4b5563;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .qr-wrap {
+      display: flex;
+      width: 240px;
+      height: 240px;
+      align-items: center;
+      justify-content: center;
+      margin: 24px 48px 0;
+      border-radius: 1.2rem;
+      background: #e5e7eb;
+    }
+
+    .qr {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+    }
+
+    .tip {
+      width: 100%;
+      margin: 0;
+      padding: 16px;
+      color: #4b5563;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .actions {
+      display: flex;
+      width: 100%;
+      gap: 10px;
+      justify-content: center;
+      padding-top: 2px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: #ffffff;
+      background: #374151;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+    }
+
+    .button.primary {
+      background: #111827;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .card {
+        background: rgba(30, 41, 59, 0.85);
+      }
+
+      h1 {
+        color: #ffffff;
+      }
+
+      .desc,
+      .tip {
+        color: #cbd5e1;
+      }
+
+      .qr-wrap {
+        background: #0f172a;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .card {
+        margin: 24px 12px;
+      }
+
+      .qr-wrap {
+        width: min(240px, 100%);
+        height: auto;
+        aspect-ratio: 1;
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="background" aria-hidden="true"></div>
+    <section class="card" aria-label="付款码">
+      <img class="avatar" src="public/avatar.png" alt="SmallCoral 头像">
+      <h1>SmallCoral</h1>
+      <p class="desc">感谢您的赞助</p>
+
+      <div class="qr-wrap">
+        <img class="qr" src="public/qrcode.png" alt="支付宝和微信双平台付款二维码">
+      </div>
+
+      <p class="tip">支付宝 / 微信 直接扫码付款</p>
+
+      <div class="actions">
+        <a class="button primary" href="../">返回博客</a>
+        <a class="button" href="https://github.com/SmallCoral" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

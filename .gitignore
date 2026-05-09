@@ -78,8 +78,14 @@ typings/
 # Next.js build output
 .next
 
-# Local Next.js pay workspace. The published static page is pay.html.
-/pay/
+# Local Next.js pay workspace. The published static page lives at /pay/.
+/pay/*
+!/pay/index.html
+!/pay/public/
+/pay/public/*
+!/pay/public/avatar.png
+!/pay/public/background.jpg
+!/pay/public/qrcode.png
 
 # Nuxt.js build / generate output
 .nuxt
