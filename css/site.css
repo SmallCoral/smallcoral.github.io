@@ -236,7 +236,7 @@ h1 {
   display: grid;
   grid-template-columns: minmax(220px, 330px) minmax(260px, 1fr);
   gap: 14px;
-  max-width: 760px;
+  max-width: 660px;
 }
 
 .avatar-card,
