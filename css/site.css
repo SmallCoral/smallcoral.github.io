@@ -234,9 +234,9 @@ h1 {
 
 .identity-panel {
   display: grid;
-  grid-template-columns: minmax(220px, 330px) minmax(190px, 240px) minmax(260px, 1fr);
+  grid-template-columns: minmax(220px, 330px) minmax(260px, 1fr);
   gap: 14px;
-  max-width: 1020px;
+  max-width: 660px;
 }
 
 .avatar-card,
