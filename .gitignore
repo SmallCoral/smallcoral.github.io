@@ -78,14 +78,31 @@ typings/
 # Next.js build output
 .next
 
-# Local Next.js pay workspace. The published static page lives at /pay/.
-/pay/*
-!/pay/index.html
-!/pay/public/
-/pay/public/*
-!/pay/public/avatar.png
-!/pay/public/background.jpg
-!/pay/public/qrcode.png
+# Local Next.js pay workspace source. Static export output under /pay is tracked.
+/pay/.git.local-backup/
+/pay/.next/
+/pay/out/
+/pay/node_modules/
+/pay/app/
+/pay/public/
+/pay/.editorconfig
+/pay/.env
+/pay/.eslintrc.json
+/pay/.gitignore
+/pay/.prettierrc
+/pay/dev-server*.log
+/pay/LICENSE
+/pay/README.md
+/pay/PAYMENT_SETUP.md
+/pay/middleware.ts
+/pay/next-env.d.ts
+/pay/next.config.mjs
+/pay/package.json
+/pay/pnpm-lock.yaml
+/pay/pnpm-workspace.yaml
+/pay/postcss.config.mjs
+/pay/tailwind.config.ts
+/pay/tsconfig.json
 
 # Nuxt.js build / generate output
 .nuxt
