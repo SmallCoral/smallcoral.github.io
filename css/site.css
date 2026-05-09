@@ -226,15 +226,22 @@ h1 {
   border-color: var(--paper);
 }
 
+.button-pay {
+  color: var(--ink);
+  background: var(--cyan);
+  border-color: var(--cyan);
+}
+
 .identity-panel {
   display: grid;
-  grid-template-columns: minmax(220px, 330px) minmax(260px, 1fr);
+  grid-template-columns: minmax(220px, 330px) minmax(190px, 240px) minmax(260px, 1fr);
   gap: 14px;
-  max-width: 760px;
+  max-width: 1020px;
 }
 
 .avatar-card,
-.callsign-card {
+.callsign-card,
+.github-card {
   border: 1px solid rgba(255, 255, 255, 0.26);
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.44);
@@ -266,12 +273,40 @@ h1 {
   line-height: 1.5;
 }
 
+.github-card {
+  display: flex;
+  min-height: 126px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.github-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--amber);
+}
+
+.github-card strong {
+  display: block;
+  color: var(--white);
+  margin-top: 8px;
+  font-size: 24px;
+}
+
+.github-card p {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
 .callsign-card {
   padding: 18px;
 }
 
 .callsign-card .label,
-.callsign-card .morse {
+.callsign-card .morse,
+.github-card .label {
   display: block;
   color: rgba(255, 255, 255, 0.62);
   font-size: 12px;

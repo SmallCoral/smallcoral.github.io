@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmallCoral 付款码</title>
+  <meta name="description" content="SmallCoral 的支付宝与微信双平台付款码。">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+  <style>
+    :root {
+      --ink: #0a0a0a;
+      --muted: #6f736b;
+      --amber: #f5b83d;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.46)),
+        url("images/gallery/114514.jpg") center / cover fixed;
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      display: grid;
+      min-height: 100vh;
+      place-items: center;
+      padding: 32px 18px;
+    }
+
+    .pay-card {
+      width: min(390px, 100%);
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .profile img {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    .profile span,
+    .meta {
+      color: var(--muted);
+    }
+
+    h1,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .qr-frame {
+      padding: 16px;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 12px;
+      background: var(--white);
+    }
+
+    .qr-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .meta {
+      margin-top: 16px;
+      line-height: 1.75;
+      text-align: center;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--ink);
+      font-weight: 800;
+    }
+
+    .button.accent {
+      color: var(--ink);
+      background: var(--amber);
+    }
+
+    @media (max-width: 460px) {
+      .actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="pay-card" aria-label="付款码">
+      <div class="profile">
+        <img src="images/resource/user.png" alt="SmallCoral 头像">
+        <div>
+          <h1>SmallCoral 付款码</h1>
+          <span>支付宝 / 微信 扫码付款</span>
+        </div>
+      </div>
+
+      <div class="qr-frame">
+        <img src="images/resource/pay-qrcode.png" alt="支付宝和微信双平台付款二维码">
+      </div>
+
+      <p class="meta">请使用支付宝或微信扫码。若识别不稳定，请刷新后重新尝试或联系站长。</p>
+
+      <div class="actions">
+        <a class="button accent" href="./">返回博客</a>
+        <a class="button" href="https://github.com/SmallCoral" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

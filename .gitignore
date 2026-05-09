@@ -78,6 +78,9 @@ typings/
 # Next.js build output
 .next
 
+# Local Next.js pay workspace. The published static page is pay.html.
+/pay/
+
 # Nuxt.js build / generate output
 .nuxt
 dist
