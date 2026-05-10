@@ -64,5 +64,16 @@
     "group": "friend",
     "description": "春風若有憐花意，可否許我再少年？",
     "reciprocal": "https://dz1d.vip/friends"
+  },
+  {
+    "label": "Blog",
+    "name": "CSBigCaptain Blog",
+    "url": "https://csbig.top/",
+    "avatar": "https://avatars.githubusercontent.com/u/81836540?v=4",
+    "tags": [
+      "personal"
+    ],
+    "group": "friend",
+    "description": "CSBigCaptain's personal blog."
   }
 ]
