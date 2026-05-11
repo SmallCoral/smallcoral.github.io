@@ -75,5 +75,17 @@
     ],
     "group": "friend",
     "description": "CSBigCaptain's personal blog."
+  },
+  {
+    "label": "Blog",
+    "name": "Hsuan's space",
+    "url": "https://quarkpixel.github.io/",
+    "avatar": "https://quarkpixel.github.io/meta/twitter-image.webp",
+    "tags": [
+      "personal"
+    ],
+    "group": "friend",
+    "description": "一些碎碎念，都是水文啦。",
+    "reciprocal": "https://quarkpixel.github.io/about"
   }
 ]
