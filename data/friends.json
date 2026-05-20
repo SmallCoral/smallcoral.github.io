@@ -87,5 +87,17 @@
     "group": "friend",
     "description": "一些碎碎念，都是水文啦。",
     "reciprocal": "https://quarkpixel.github.io/about"
+  },
+  {
+    "label": "Blog",
+    "name": "z0z0r4's Blog",
+    "url": "https://blog.z0z0r4.top/",
+    "avatar": "https://blog.z0z0r4.top/avatar/avatar.jpg",
+    "tags": [
+      "personal"
+    ],
+    "group": "friend",
+    "description": "A Long Long Way",
+    "reciprocal": "https://blog.z0z0r4.top/friend"
   }
 ]
