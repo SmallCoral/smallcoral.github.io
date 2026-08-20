@@ -154,7 +154,8 @@ const exploreMeta: Record<ExplorePanelName, { index: string; eyebrow: string; ti
 
 function StationPanel() {
   const [frequency, setFrequency] = useState(145);
-  const signal = Math.max(18, 92 - Math.abs(frequency - 145.55) * 36);
+  const isEasterEggLocked = Math.abs(frequency - 145.55) < 0.0005;
+  const signal = isEasterEggLocked ? 100 : Math.max(18, 88 - Math.abs(frequency - 145.55) * 36);
 
   function nudge(amount: number) {
     setFrequency((current) => Math.min(148, Math.max(144, Number((current + amount).toFixed(3)))));
@@ -172,11 +173,18 @@ function StationPanel() {
           <div><span>SIGN OFF</span><strong>73</strong></div>
         </div>
       </div>
-      <div className="radio-panel interactive-radio">
-        <div className="radio-screen">
+      <div className={isEasterEggLocked ? "radio-panel interactive-radio locked" : "radio-panel interactive-radio"}>
+        <div className={isEasterEggLocked ? "radio-screen locked" : "radio-screen"}>
           <div><span>FREQUENCY</span><strong>{frequency.toFixed(3)}</strong><small>MHz</small></div>
-          <p>{signal > 86 ? "SIGNAL LOCKED · BH6TAW" : signal > 55 ? "TUNING… SIGNAL FOUND" : "CQ CQ CQ · SEARCHING"}</p>
+          <p>{isEasterEggLocked ? "SIGNAL LOCKED · BH6TAW" : signal > 55 ? "TUNING… SIGNAL FOUND" : "CQ CQ CQ · SEARCHING"}</p>
           <div className="signal-meter"><i style={{ width: `${signal}%` }} /></div>
+          {isEasterEggLocked && (
+            <div className="station-easter-egg" role="status" aria-live="polite">
+              <span>DE BH6TAW · 73</span>
+              <b>同频相遇，欢迎来到 SmallCoral 的水族馆。</b>
+              <small>愿你总能越过噪声，找到愿意回应的信号。</small>
+            </div>
+          )}
         </div>
         <div className="tuner-control">
           <button type="button" onClick={() => nudge(-0.025)} aria-label="降低频率">−</button>
@@ -196,7 +204,7 @@ function StationPanel() {
           <span>CHINA MAINLAND · 2 M BAND</span>
           <p>144–146 MHz：业余 / 卫星业余；146–148 MHz：含业余业务，并与其他业务共用。</p>
           <small>频率划分不等同于发射许可，实际操作以电台执照、操作权限及当地协调要求为准。</small>
-          <a className="radio-lookup-link" href="/frequency/">查询任意频率 <Arrow /></a>
+          <a className="radio-lookup-link" href="/frequency/">打开频率查询页 <Arrow /></a>
         </div>
       </div>
     </div>
