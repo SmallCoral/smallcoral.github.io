@@ -12,6 +12,7 @@ const pageInputs = [
   "blog/EmptyMagazineCleaner.html",
   "blog/RevekBoss.html",
   "blog/SoftwareNotService.html",
+  "frequency/index.html",
 ];
 
 function copyStaticAssets(): Plugin {

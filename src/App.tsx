@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { articleBySlug, articles, type Article } from "./articles";
+import { Arrow, Footer, SiteNav } from "./SiteChrome";
 
 type AppProps = {
   articleSlug?: string;
@@ -56,54 +57,6 @@ const filterLabels = [
   ["hardware", "硬件"],
   ["study", "学习"],
 ] as const;
-
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
-}
-
-function Brand() {
-  return (
-    <a className="brand" href="/" aria-label="SmallCoral 首页">
-      <span className="brand-mark"><img src="/images/logo.svg" alt="" /></span>
-      <span className="brand-copy"><strong>SmallCoral</strong><small>Personal aquarium</small></span>
-    </a>
-  );
-}
-
-function SiteNav({ article = false }: { article?: boolean }) {
-  const [open, setOpen] = useState(false);
-  const prefix = article ? "/" : "";
-  const links = [
-    ["#posts", "日志"],
-    ["#station", "电台"],
-    ["#gallery", "碎片"],
-    ["#friends", "友链"],
-  ];
-
-  return (
-    <nav className="site-nav" aria-label="主导航">
-      <Brand />
-      <button
-        className="nav-toggle"
-        type="button"
-        aria-label={open ? "关闭导航" : "打开导航"}
-        aria-expanded={open}
-        onClick={() => setOpen((value) => !value)}
-      >
-        <span /><span />
-      </button>
-      <div className={`nav-links ${open ? "is-open" : ""}`}>
-        {article && <a href="/">首页</a>}
-        {links.map(([href, label]) => (
-          <a key={href} href={`${prefix}${href}`} onClick={() => setOpen(false)}>{label}</a>
-        ))}
-        <a className="nav-cta" href="https://github.com/SmallCoral" target="_blank" rel="noreferrer">
-          GitHub <Arrow />
-        </a>
-      </div>
-    </nav>
-  );
-}
 
 function SectionTitle({ eyebrow, title, note }: { eyebrow: string; title: string; note?: string }) {
   return (
@@ -243,6 +196,7 @@ function StationPanel() {
           <span>CHINA MAINLAND · 2 M BAND</span>
           <p>144–146 MHz：业余 / 卫星业余；146–148 MHz：含业余业务，并与其他业务共用。</p>
           <small>频率划分不等同于发射许可，实际操作以电台执照、操作权限及当地协调要求为准。</small>
+          <a className="radio-lookup-link" href="/frequency/">查询任意频率 <Arrow /></a>
         </div>
       </div>
     </div>
@@ -564,14 +518,6 @@ function ArticlePage({ article }: { article: Article }) {
       </nav>
       <Footer />
     </div>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="shell footer-inner"><Brand /><p>SmallCoral Aquarium · Built from curiosity<br /><span>73 de BH6TAW</span></p><a href="#top">BACK TO TOP ↑</a></div>
-    </footer>
   );
 }
 
