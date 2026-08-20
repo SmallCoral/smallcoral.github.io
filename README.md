@@ -1,26 +1,25 @@
 # SmallCoral Aquarium
 
-SmallCoral 的个人博客重写版。
+SmallCoral 的个人博客，使用 React、TypeScript 和 Vite 构建，并通过 GitHub Actions 发布到 GitHub Pages。
 
-保留内容：
+## 本地开发
 
-- 头像、Logo、favicon
-- 博客封面图
-- 部分 gallery 图片
-- 4 篇原有文章内容
+```bash
+npm install
+npm run dev
+```
 
-新功能：
+## 构建
 
-- 全新首页视觉
-- BH6TAW 业余无线电台呼号展示
-- 博客文章卡片与独立文章页
-- 友链展示、筛选、搜索、信息复制和 GitHub Issues 审核后自动添加
-- 无 Bootstrap、无旧模板脚本、无外部构建流程
+```bash
+npm run build
+npm run preview
+```
 
-直接打开 `index.html` 即可浏览。
+构建产物位于 `dist/`。现有文章地址继续保留为 `blog/*.html`，`images/`、`data/` 和 `pay/` 会在构建时复制到发布目录。
 
-友链自动化：
+## 友链自动化
 
-- 申请入口使用 GitHub Issue Form：`.github/ISSUE_TEMPLATE/friend-link.yml`
-- 审核通过时给申请 Issue 添加 `friend-approved` 标签
-- GitHub Actions 会把申请信息追加到 `data/friends.json`，提交到默认分支，并关闭 Issue
+- 申请入口：`.github/ISSUE_TEMPLATE/friend-link.yml`
+- 给申请 Issue 添加 `friend-approved` 标签后，现有工作流会更新 `data/friends.json`
+- `main` 分支更新后，`deploy-pages.yml` 会重新构建并发布网站

@@ -1,96 +1,17 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>潜渊症自动清理地上的空弹匣 | SmallCoral</title>
-  <meta name="description" content="EmptyMagazineCleaner：用于 Barotrauma 的轻量 Lua 模组，自动清理地上的废弃弹药物品。">
-  <link rel="shortcut icon" href="../images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="../css/site.css">
-</head>
-<body>
-  <header class="site-header article-header" style="background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.16)), url('../images/resource/blog-4.png');">
-    <nav class="topbar" aria-label="文章导航">
-      <a class="brand" href="../index.html">
-        <img src="../images/logo.svg" alt="">
-        <span>SmallCoral</span>
-      </a>
-      <div class="nav-links">
-        <a href="../index.html#posts">博客</a>
-        <a href="../index.html#station">BH6TAW</a>
-        <a href="../index.html#friends">友链</a>
-      </div>
-    </nav>
-    <section class="hero article-title">
-      <p class="eyebrow">Barotrauma Mod / Lua</p>
-      <h1>潜渊症自动清理地上的空弹匣</h1>
-      <p>一个用于 Barotrauma 的轻量 Lua 模组，目标很小：把战斗后堆在地上的废弃弹药清掉。</p>
-    </section>
-  </header>
-
-  <main>
-    <div class="article-cover">
-      <img src="../images/resource/blog-4.png" alt="潜渊症自动清理地上的空弹匣封面">
-    </div>
-
-    <article class="article-content">
-      <div class="resource-links">
-        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3690720502" target="_blank" rel="noopener">创意工坊</a>
-        <a href="https://github.com/SmallCoral/EmptyMagazineCleaner" target="_blank" rel="noopener">GitHub</a>
-      </div>
-
-      <p>一个用于 <strong>Barotrauma</strong> 的轻量 Lua 模组。会自动清理掉在地上的空弹匣、空弹药箱，以及部分已经耗尽的轨道炮弹和深水炸弹，减少潜艇内部杂物堆积。</p>
-
-      <h2>功能</h2>
-      <ul>
-        <li>清理空弹匣。</li>
-        <li>清理空弹药箱。</li>
-        <li>清理部分已耗尽的轨道炮弹。</li>
-        <li>清理部分已耗尽的深水炸弹和诱饵弹药。</li>
-        <li>仅处理掉在地上的废弃物品。</li>
-        <li>不清理背包、容器和正常可用弹药。</li>
-      </ul>
-
-      <h2>设计目标</h2>
-      <p>这个模组的目标不是改动平衡，也不是增加新内容。它只是解决一个很烦人的小问题：打完后的废弃弹药会一直留在地上，占地方，也影响整洁。</p>
-      <p>因此，这个模组专注于自动化清理、尽量低侵入、尽量避免误删，并保持原版体验。</p>
-
-      <h2>依赖</h2>
-      <ul>
-        <li>Lua For Barotrauma。</li>
-      </ul>
-
-      <h2>安装方法</h2>
-      <p>将模组放入 <code>Barotrauma/LocalMods/</code> 目录，并在游戏内容包列表中启用。确保已经正确安装并启用 <strong>Lua For Barotrauma</strong>。</p>
-
-      <h2>适用范围</h2>
-      <ul>
-        <li>单人游戏。</li>
-        <li>本地主机。</li>
-        <li>使用 Lua For Barotrauma 的环境。</li>
-      </ul>
-
-      <h2>说明</h2>
-      <p>本模组只会清理掉在地上的、已明显耗尽的废弃弹药物品。不会处理背包、柜子或仍可正常使用的弹药。</p>
-
-      <div class="article-tags">
-        <span>潜渊症</span>
-        <span>自制模组</span>
-        <span>自动清理</span>
-        <span>Lua</span>
-      </div>
-    </article>
-
-    <nav class="article-nav" aria-label="文章切换">
-      <a href="../index.html#posts">返回博客列表</a>
-      <a href="DAPLink-STM32.html">下一篇：STM32 DAPLink</a>
-    </nav>
-  </main>
-
-  <footer class="site-footer">
-    <p>SmallCoral Aquarium. 73 de BH6TAW.</p>
-    <a href="../index.html">返回首页</a>
-  </footer>
-  <script src="../js/site.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07110f" />
+    <meta name="description" content="用于 Barotrauma 的轻量 Lua 模组，自动清理地上的废弃弹药物品。" />
+    <meta property="og:title" content="潜渊症自动清理地上的空弹匣" />
+    <meta property="og:image" content="https://smallcoral.github.io/images/resource/blog-4.png" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    <title>潜渊症自动清理地上的空弹匣 | SmallCoral</title>
+  </head>
+  <body>
+    <div id="root" data-article="empty-magazine-cleaner"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

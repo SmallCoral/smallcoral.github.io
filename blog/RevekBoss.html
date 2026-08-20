@@ -1,118 +1,17 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>瑞维克 BOSS 战设计 | SmallCoral</title>
-  <meta name="description" content="把空洞骑士中的瑞维克设计成 Boss 战的构想，包含场景、技能、打法策略和剧情设定。">
-  <link rel="shortcut icon" href="../images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="../css/site.css">
-</head>
-<body>
-  <header class="site-header article-header" style="background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.14)), url('../images/resource/blog-2.jpg');">
-    <nav class="topbar" aria-label="文章导航">
-      <a class="brand" href="../index.html">
-        <img src="../images/logo.svg" alt="">
-        <span>SmallCoral</span>
-      </a>
-      <div class="nav-links">
-        <a href="../index.html#posts">博客</a>
-        <a href="../index.html#station">BH6TAW</a>
-        <a href="../index.html#friends">友链</a>
-      </div>
-    </nav>
-    <section class="hero article-title">
-      <p class="eyebrow">Game Design / Hollow Knight</p>
-      <h1>瑞维克 BOSS 战设计</h1>
-      <p>把灵魂沼地的鬼魂守护者改造成一场围绕梦之钉展开的 Boss 战。</p>
-    </section>
-  </header>
-
-  <main>
-    <div class="article-cover">
-      <img src="../images/resource/blog-2.jpg" alt="瑞维克 BOSS 战设计封面">
-    </div>
-
-    <article class="article-content">
-      <p>突发奇想感觉瑞维克可以做成一个 Boss，于是把目前的构思整理下来。瑞维克（Revek）是《空洞骑士》中灵魂沼地的鬼魂守护者，在灵魂沼地对他使用梦之钉即可进入他的梦境并与之战斗。</p>
-
-      <h2>场景布置</h2>
-      <p>初步构想为灵魂沼地的背景，中央坐落着一颗巨大的低语之根，下方是他所守护的鬼魂居民剪影。</p>
-
-      <h2>行动模式</h2>
-      <p>除了冲刺斩与噬魂爆炸的伤害为两格面具之外，其他伤害都为一格面具。</p>
-      <ul>
-        <li>冲刺斩：连续三下从不同方向进行冲刺斩，每次造成两格面具伤害，冲刺间隔接近无上辐光的光辐射节奏。</li>
-        <li>剑波：以瑞维克为中心，向小骑士方向释放一道横跨屏幕的剑波，造成一格面具伤害。</li>
-        <li>噬魂治疗：若小骑士的灵魂大于等于 33，则消耗 33 点灵魂为自己恢复生命，并产生范围爆炸；此时使用梦之钉可打断噬魂并造成大量伤害。</li>
-        <li>格挡：距离过近时摆出防御姿态，防御正面、向上和向下的骨钉与法术攻击；若格挡成功，会向前刺击并覆盖约 50% 场地。</li>
-        <li>下刺：传送到小骑士上方向下猛砸，并向左右产生冲击波。</li>
-        <li>骨钉刺击：在场地随机位置生成三根骨钉射向小骑士，每根骨钉间隔 0.5 到 1 秒。</li>
-      </ul>
-
-      <h2>打法策略</h2>
-      <ul>
-        <li>瑞维克是少数能用梦之钉造成伤害的 Boss。普通梦之钉造成 33 点伤害，搭配舞梦者后提升为 66 点。</li>
-        <li>噬魂治疗的前摇略大于舞梦者梦之钉的挥动时间，需要选择合适时机打断。</li>
-        <li>下刺存在可观察的时间间隔，可以搭配下砸反击，萨满之石能进一步提高收益。</li>
-        <li>冲刺斩与骨钉刺击可以通过黑冲或下砸躲避，冲刺斩也可通过拼刀免除伤害。</li>
-      </ul>
-
-      <h2>硬直条件</h2>
-      <p>瑞维克只能通过梦之钉进入硬直，持续 3 秒。硬直过程中，骨钉与法术无法对其造成伤害，但仍可为小骑士回魂；再次使用梦之钉会造成伤害并取消硬直。</p>
-      <blockquote>使用梦之钉次数：3 次。</blockquote>
-
-      <h2>神居文案</h2>
-      <ul>
-        <li>“我守护着沼池边的墓地”。</li>
-        <li>“强大与忠诚的灵魂守护神”。</li>
-      </ul>
-
-      <h2>生命值</h2>
-      <ul>
-        <li>调谐级：950。</li>
-        <li>进升级：950。</li>
-        <li>辐辉级：950。</li>
-      </ul>
-
-      <h2>梦语</h2>
-      <ul>
-        <li>守护......这片安息之地。</li>
-        <li>彼岸的...花海。</li>
-        <li>保护，终生的使命。</li>
-      </ul>
-
-      <h2>游戏剧情</h2>
-      <ul>
-        <li>初次见到瑞维克时，他会像原版一样警告小骑士；如果伤害鬼魂居民，就要面对恶果。</li>
-        <li>对墓地中的其他所有鬼魂使用梦之钉后，瑞维克会沮丧地表示自己忘记了一项重要使命。再次对他使用梦之钉，他会消失；回到灵魂沼地后，在他的位置使用梦之钉即可进入 Boss 战。</li>
-        <li>如果小骑士携带娇嫩的花进入战斗，战斗中花不会损毁。失败后小骑士退出梦境并且花被损毁；胜利后，灵魂沼地开满娇嫩的花，除瑞维克外所有鬼魂居民重新出现。</li>
-      </ul>
-
-      <h2>其他信息</h2>
-      <ul>
-        <li>瑞维克的骨钉刺击来源于灵魂沼池一位鬼魂居民，百钉战士的三根骨钉。</li>
-        <li>这个 Boss 战灵感来自突发奇想，目前偏设计文档，实际 Mod 化还需要补实现。</li>
-      </ul>
-
-      <div class="article-tags">
-        <span>游戏</span>
-        <span>空洞骑士</span>
-        <span>Boss 设计</span>
-        <span>梦之钉</span>
-      </div>
-    </article>
-
-    <nav class="article-nav" aria-label="文章切换">
-      <a href="DAPLink-STM32.html">上一篇：STM32 DAPLink</a>
-      <a href="SoftwareNotService.html">下一篇：Software Not Service</a>
-    </nav>
-  </main>
-
-  <footer class="site-footer">
-    <p>SmallCoral Aquarium. 73 de BH6TAW.</p>
-    <a href="../index.html">返回首页</a>
-  </footer>
-  <script src="../js/site.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07110f" />
+    <meta name="description" content="把《空洞骑士》中的瑞维克设计成 Boss 战的构想：场景、技能、策略与剧情设定。" />
+    <meta property="og:title" content="瑞维克 BOSS 战设计" />
+    <meta property="og:image" content="https://smallcoral.github.io/images/resource/blog-2.jpg" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    <title>瑞维克 BOSS 战设计 | SmallCoral</title>
+  </head>
+  <body>
+    <div id="root" data-article="revek-boss"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

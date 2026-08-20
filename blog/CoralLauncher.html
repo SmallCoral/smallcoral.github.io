@@ -1,94 +1,17 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Coral Launcher：用 AI 圆一个 Minecraft 启动器的旧梦 | SmallCoral</title>
-  <meta name="description" content="关于 Coral Launcher：一款使用 Tauri 2、React、TypeScript 和 Rust 构建的轻量级 Minecraft Java 版启动器，以及一次 AI 辅助开发的记录。">
-  <link rel="shortcut icon" href="../images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="../css/site.css">
-</head>
-<body>
-  <header class="site-header article-header" style="background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.24)), url('../images/coral-launcher-cover.png');">
-    <nav class="topbar" aria-label="文章导航">
-      <a class="brand" href="../index.html">
-        <img src="../images/logo.svg" alt="">
-        <span>SmallCoral</span>
-      </a>
-      <div class="nav-links">
-        <a href="../index.html#posts">博客</a>
-        <a href="../index.html#station">BH6TAW</a>
-        <a href="../index.html#friends">友链</a>
-      </div>
-    </nav>
-    <section class="hero article-title">
-      <p class="eyebrow">Minecraft / Tauri / AI</p>
-      <h1>Coral Launcher：用 AI 圆一个 Minecraft 启动器的旧梦</h1>
-      <p>这是我的第一个 AI 辅助开发项目，也是一款真正能下载、登录、安装模组并启动游戏的 Minecraft Java 版启动器。</p>
-    </section>
-  </header>
-
-  <main>
-    <div class="article-cover">
-      <img src="../images/coral-launcher-cover.png" alt="Coral Launcher 封面">
-    </div>
-
-    <article class="article-content">
-      <div class="resource-links">
-        <a href="https://github.com/SmallCoral/coral-launcher" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/SmallCoral/coral-launcher#readme" target="_blank" rel="noopener">项目说明</a>
-      </div>
-
-      <p>最开始接触编程的时候，我很大一部分动力来自 Minecraft。那时候总觉得，能写一个自己的启动器、能把游戏版本、资源文件、登录和启动流程全部串起来，是一件很酷也很遥远的事。后来学的东西越来越多，真正要做的项目也越来越杂，这个念头反而被放到了很后面。</p>
-
-      <p>直到现在，有了 AI 辅助开发，我又把这个旧想法翻了出来。Coral Launcher 就是在这种背景下诞生的：它不是一个网页玩具，而是一款基于 Tauri 2、React、TypeScript 和 Rust 构建的桌面端 Minecraft Java 版启动器。React 负责界面，Rust 负责文件、网络、校验、解压、认证和进程启动，最后打包成 Windows 上可以直接运行的 exe。</p>
-
-      <h2>为什么选 Tauri</h2>
-      <p>做启动器并不只是画几个按钮。它需要访问本地文件系统，需要下载大量文件，需要校验 SHA1 和文件大小，需要解压原生库，还要把 Java 命令行拼对并启动进程。Tauri 的好处是界面层可以继续用熟悉的前端技术，底层能力交给 Rust，而且不需要捆绑完整 Chromium，成品体积和桌面应用的感觉都会更舒服。</p>
-
-      <p>这个项目的技术栈最终定成了 React 18 + TypeScript 5 + Vite 5 做前端，Tauri 2 做桌面框架，Rust 后端用 reqwest、tokio、sha1、md5、zip 等库处理网络和文件。这样的分工很清晰：前端负责把版本、账号、模组和设置展示出来，后端负责真正会影响系统状态的工作。</p>
-
-      <h2>它现在能做什么</h2>
-      <p>目前 Coral Launcher 已经能从 BMCLAPI 获取 Minecraft 版本列表，失败时回退到 Mojang/Piston 官方元数据源。下载版本时，它会处理版本清单、客户端 jar、libraries、natives、asset index 和资源文件，并且支持重试、镜像回退、大小校验、SHA1 校验，以及并行下载。</p>
-
-      <p>账号方面，它支持 Microsoft 设备码登录，不需要用户手动填 Client ID；登录后会完成 Xbox Live、XSTS 和 Minecraft Services 的认证流程，检查游戏资格并读取角色信息。为了方便本地测试和离线服务器，也保留了离线模式，并按 OfflinePlayer 规则生成 UUID。</p>
-
-      <p>模组部分接入了 Modrinth API，可以按游戏版本和加载器搜索 Fabric、Forge、Quilt、NeoForge 相关模组，并把文件安装到实例的 mods 目录。启动部分则会根据版本元数据、账号信息、Java 设置和内存设置拼出命令行，同时把敏感 token 从预览命令里隐藏掉。</p>
-
-      <h2>真正麻烦的地方</h2>
-      <p>写启动器最容易低估的是“细节数量”。Minecraft 的版本元数据、资源索引、库规则、原生库、不同系统的路径、Java 大版本、Microsoft 登录链路，每一块单独看都不算神秘，但全部串起来以后，任何一个小字段处理错都会让启动失败，而且错误原因经常不直观。</p>
-
-      <p>比如下载不是简单地把 URL 保存下来。要考虑国内镜像和官方源的回退，要控制并发，要校验文件是否已经完整存在，要把 natives 解压到正确目录。再比如登录也不是拿到一个 access token 就结束，中间还要经过 Xbox Live、XSTS，再换到 Minecraft Services，最后才能得到游戏内真正可用的资料。</p>
-
-      <h2>AI 在这个项目里的位置</h2>
-      <p>这个项目对我来说最重要的并不是“AI 写了多少代码”，而是它降低了把想法落地的启动成本。过去一个人做完整桌面应用，很容易被某一块不熟的技术卡住；现在可以让 AI 帮忙整理接口、拆任务、补样板代码、定位错误，然后我再根据实际运行结果去判断、修改和取舍。</p>
-
-      <p>AI 不是替我决定项目该长什么样的东西。真正重要的仍然是我要做什么、我能不能看懂它写的代码、我能不能在出错时继续往下查。Coral Launcher 更像是一次验证：当工具足够强时，很多以前“也许以后再做”的想法，真的可以被重新捡起来。</p>
-
-      <h2>后面还想继续补什么</h2>
-      <p>接下来我想继续完善加载器安装，把 Fabric、Quilt、Forge、NeoForge 的安装流程做得更完整；也想把 refresh token 从普通 JSON 文件迁移到系统密钥链或 Tauri Stronghold。Java 运行时自动发现和下载、断点续传、更细的下载进度，也都是启动器体验里很值得补的部分。</p>
-
-      <p>不管最后它会发展到什么程度，Coral Launcher 已经完成了最重要的一步：它把我刚入行时的一个念头，变成了一个能实际运行的桌面程序。这种感觉很难用“效率提升”四个字概括。它更像是回头对过去的自己说：这个坑，我们终于开始填了。</p>
-
-      <div class="article-tags">
-        <span>Minecraft</span>
-        <span>启动器</span>
-        <span>Tauri</span>
-        <span>Rust</span>
-        <span>AI 辅助开发</span>
-      </div>
-    </article>
-
-    <nav class="article-nav" aria-label="文章切换">
-      <a href="DAPLink-STM32.html">上一篇：从 0 开始制作一个 STM32 DAPLink</a>
-      <a href="../index.html#posts">返回博客列表</a>
-    </nav>
-  </main>
-
-  <footer class="site-footer">
-    <p>SmallCoral Aquarium. 73 de BH6TAW.</p>
-    <a href="../index.html">返回首页</a>
-  </footer>
-  <script src="../js/site.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07110f" />
+    <meta name="description" content="关于 Coral Launcher：使用 Tauri、React、TypeScript 和 Rust 构建 Minecraft Java 版启动器的记录。" />
+    <meta property="og:title" content="Coral Launcher：用 AI 圆一个 Minecraft 启动器的旧梦" />
+    <meta property="og:image" content="https://smallcoral.github.io/images/coral-launcher-cover.png" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    <title>Coral Launcher：用 AI 圆一个 Minecraft 启动器的旧梦 | SmallCoral</title>
+  </head>
+  <body>
+    <div id="root" data-article="coral-launcher"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
